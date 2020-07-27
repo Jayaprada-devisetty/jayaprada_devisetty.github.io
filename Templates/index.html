@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Team-6 API</title>
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+.login{
+top:100%;
+}
+body{
+background-image: url('https://news.yale.edu/sites/default/files/styles/featured_media/public/adobestock_276205639.jpeg?itok=PjcxEgaC&c=07307e7d6a991172b9f808eb83b18804');
+  background_repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+* {box-sizing: border-box;}
+.input{
+top: 30%;
+width: 750%;
+position: absolute
+color:blue;
+font-size: 20px;
+ }
+ .output{
+right: 50%;
+position: absolute;
+width: 30%;
+height: 50%;
+left: 40%;
+}
+p.one{
+ border-color: red;
+ border-style: solid;
+ margin: auto;
+}
+.matter{
+font-size: 20px;
+color:blue;
+font-family: Arial, Helvetica, sans-serif;
+}
+label { 
+        float: left;
+        color:black; 
+         display: inline-block;
+  width: 160px;
+  text-align: left;
+        }        
+input {
+    color: black;
+    font-weight: bold;
+    background: lightblue;
+}   
+.form-inline {  
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: lightblue;
+  border: 1px solid #ddd;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: dodgerblue;
+  border: 1px solid #ddd;
+  color: white;
+  cursor: pointer;
+  position:relative;
+  left:380px;
+}
+
+.form-inline button:hover {
+  background-color: royalblue;
+}       
+.advices{
+top: 30%;
+width: 100%;
+position: absolute;
+}
+
+</style>
+</head>
+
+<body>
+ <div class="login">
+ <div class="matter">
+	<h1 style="color:blue;">Diabetes Mellitus Prediction</h1>
+    <!-- Main Input For Receiving Query to our ML -->
+    <p style="color:black;">Diabetes mellitus (DM), commonly known as diabetes, is a group of metabolic disorders characterized by a high blood sugar level over a prolonged period of time. Symptoms often include frequent urination, increased thirst, and increased appetite. If left untreated, diabetes can cause many complications. Acute complications can include diabetic ketoacidosis, hyperosmolar hyperglycemic state, or death. Serious long-term complications include cardiovascular disease, stroke, chronic kidney disease, foot ulcers, damage to the nerves, damage to the eyes and cognitive impairment.
+     Diabetes is due to either the pancreas not producing enough insulin, or the cells of the body not responding properly to the insulin produced.
+  
+
+  This API depicts whether an individual has diabetes or not based on the factors that are given as input.
+  </p>
+  </div>
+  <div class="input">
+  <h3 style="color:black;">Enter the  below details:</h3>
+    <form  action="{{ url_for('y_predict')}}"method="post">
+           <div class="form-inline">
+    	     <label for="Pregnancies" >Pregnancies:</label><input type="number" name="Pregnancies" placeholder="Pregnancies" required="required" width="50" height="50"/><br><br>
+             <label for="Glucose" >Glucose:</label><input type="number" name="Glucose" placeholder="Glucose" required="required" width="50" height="50"/><br><br>
+		   </div>
+		 <div class="form-inline">  
+		<label for="Blood Pressure" >Blood Pressure:</label><input type="number" name="Blood Pressure" placeholder="Blood Pressure" required="required" width="50" height="50"/><br><br>
+        <label for="Skin Thickness" >Skin Thickness:</label><input type="number" name="Skin Thickness" placeholder="Skin Thickness" required="required" width="50" height="50"/><br><br>
+        </div>
+        <div class="form-inline">
+        <label for="Insulin" >Insulin:</label><input type="number" name="Insulin" placeholder="Insulin" required="required" width="50" height="50"/><br><br>
+        <label for="BMI" >BMI:</label><input type="number" step="0.001" name="BMI" placeholder="BMI" required="required" width="50" height="50"/><br><br>
+        </div>
+        <div class="form-inline">
+        <label for="Diabetes Pedigree Function" >Diabetes Pedigree Function:</label><input type="number" step="0.001" name="Diabetes Pedigree Function" placeholder="Diabetes Pedigree Function" required="required" width="50" height="50"/><br><br>
+        <label for="Age" >Age:</label><input type="number" name="Age" placeholder="Age" required="required" width="50" height="50"/><br><br>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button><br>
+    </form>
+    <br>
+  </div> 
+ 
+</body>
+</html>
